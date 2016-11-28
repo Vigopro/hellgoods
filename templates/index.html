@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load staticfiles%}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hellgoods</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="{% static 'styles/styles.min.css' %}">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-inverse">
+        <a href="#" class="navbar-brand logo-text text-uppercase">Hellgoods</a>
+        <p class="navbar-text">
+            <a href="#" class="navbar-link calendar-link pull-right">Calendar</a>
+        </p>
+    </nav>
+</header>
+
+    <div >
+        <section class="container" v-for="item in items">
+            <h3 >{{Item.published}}</h3>
+<!-- item -->
+            <div class="col-sm-8 col-sm-offset-2">
+            {% for Item in object_list %}
+                <div class="row">
+                    <div class="col-sm-12 col-md-6" v-for="block in item">
+                        <div class="thumbnail">
+                            <img src="/media/{{ Item.image }}" alt="">
+                            <div class="caption">
+                                <h4><strong>{{Item.name}}</strong></h4>
+                                <p>{{Item.description|linebreaks|truncatechars:150}}</p>
+                                <strong>{{Item.price}}</strong>
+                                <p><a href="{{ Item.link }}" class="btn btn-primary" role="button">Buy this</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+<!-- /item -->
+        </section>
+    </div>
+
+<footer class="footer text-center">
+    <span>© 2016 Hellgoods</span>
+</footer>
+<!-- jQuery -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+

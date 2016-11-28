@@ -5,7 +5,7 @@ from .models import Item
 
 
 class ItemModelAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'created', 'published']
+    list_display = ['name', 'price', 'created', 'link', 'published']
     search_fields = ['name', 'description']
     exclude = ['published']
 

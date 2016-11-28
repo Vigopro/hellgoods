@@ -1,8 +1,14 @@
 *.pyc
 *.sqlite3
 __pycache__
-fabfile.py
-local_settings.py
+
 
 /media/
 /static/
+
+/core/settings/local.py
+/core/settings/SECRETS.json
+
+
+
+

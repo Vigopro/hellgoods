@@ -18,6 +18,7 @@ class Item(models.Model):
     image = models.ImageField(_('Image'), upload_to=UPLOAD_TO)
     description = models.TextField(_('Description'))
     price = models.DecimalField(_('Price'), max_digits=10, decimal_places=2)
+    link = models.CharField(_('link'), max_length=2500)
 
     created = models.DateTimeField(_('Created'), auto_now=False, auto_now_add=True)
     edited = models.DateTimeField(_('Edited'), auto_now=True)
