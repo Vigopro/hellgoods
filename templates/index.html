@@ -9,26 +9,28 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
-
+<!-- Calendar style css -->
+<link rel="stylesheet" type="text/css" href="{% static 'calendar/jquery-ui/jquery-ui.min.css' %}">
 </head>
 <body>
 <header>
     <nav class="navbar navbar-inverse">
         <a href="#" class="navbar-brand logo-text text-uppercase">Hellgoods</a>
         <p class="navbar-text">
-            <a href="#" class="navbar-link calendar-link pull-right">Calendar</a>
+<!--             <a href="#" class="navbar-link calendar-link pull-right">Calendar</a> -->
+            <strong>Date : </strong><input type="text" id="date">
         </p>
     </nav>
 </header>
 
     <div >
-        <section class="container" v-for="item in items">
-            <h3 >{{Item.published}}</h3>
+        <section class="container">
+
 <!-- item -->
             <div class="col-sm-8 col-sm-offset-2">
             {% for Item in object_list %}
                 <div class="row">
-                    <div class="col-sm-12 col-md-6" v-for="block in item">
+                    <div class="col-sm-12 col-md-6">
                         <div class="thumbnail">
                             <img src="/media/{{ Item.image }}" alt="">
                             <div class="caption">
@@ -43,6 +45,7 @@
             {% endfor %}
             </div>
 <!-- /item -->
+
         </section>
     </div>
 
@@ -50,9 +53,16 @@
     <span>© 2016 Hellgoods</span>
 </footer>
 <!-- jQuery -->
-<script src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'calendar/jquery-ui/external/jquery/jquery.js'%}"></script>
+<!--jQuery UI -->
+<script type="text/javascript" src="{% static 'calendar/jquery-ui/jquery-ui.min.js'%}"></script>
+
+<script type="text/javascript">
+    $("#date").datepicker();
+</script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>
 
